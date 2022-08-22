@@ -8,6 +8,7 @@ jobs:
   init-dockerfile:
     docker:
       - image: python:3.7.3-stretch
+    working-directory: ~/repo
     steps:
       - checkout
       - restore_cache:
@@ -39,7 +40,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-          version: 20.10.17
+          version: "20.10.14"
           docker_layer_caching: false
       - run:
           name: build push to docker hub
