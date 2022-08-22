@@ -36,6 +36,9 @@ jobs:
   build-push-docker-images:
     docker:
       - image: "cimg/python:3.10"
+        auth:
+          username: minhbao03  # can specify string literal values
+          password: $DOCKERHUB_PASSWORD  # or project environment variable reference
         user: root
     steps:
       - checkout
