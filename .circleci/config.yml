@@ -8,7 +8,6 @@ jobs:
   init-dockerfile:
     docker:
       - image: python:3.7.3-stretch
-    working_directory: ~/app
     steps:
       - checkout
       - restore_cache:
@@ -19,7 +18,7 @@ jobs:
           command: |
             python3 -m venv .devops
             source .devops/bin/activate
-            pip install --user --upgrade pip && pip install --user --no-cache-dir -r requirements.txt
+            make install
             wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
             chmod +x /bin/hadolint
       - save_cache:
@@ -30,7 +29,7 @@ jobs:
           name: run lint
           command: |
             source .devops/bin/activate
-            make install
+            make lint
             
 
   build-push-docker-images:
