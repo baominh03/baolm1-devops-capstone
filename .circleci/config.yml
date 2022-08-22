@@ -45,11 +45,9 @@ jobs:
       - run:
           name: build push to docker hub
           command: |
-            python3 -m venv .devops
-            source .devops/bin/activate
+            docker logout
             docker login -u minhbao03 --password $DOCKERHUB_PASSWORD  
             docker build . -t baolmcapstone:latest
-            docker login -u minhbao03 --password $DOCKERHUB_PASSWORD  
             docker tag baolmcapstone minhba03/baolmcapstone:latest
             docker push minhba03/baolmcapstone:latest
   
