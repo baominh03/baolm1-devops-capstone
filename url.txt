@@ -1,0 +1,5 @@
+1. Github repo: https://github.com/baominh03/baolm1-devops-capstone
+
+2. CircleCI pipeline: https://app.circleci.com/pipelines/github/baominh03/baolm1-devops-capstone
+
+3. Docker hub: minhbao03/baolmcapstone

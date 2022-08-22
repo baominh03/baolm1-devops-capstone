@@ -2,6 +2,8 @@
 
 # baolm1-devops-capstone
 
+## Github repo: https://github.com/baominh03/baolm1-devops-capstone (or check in ```url.txt```)
+
 ## Set Up Pipeline
 
 1. Create Github repository with project code: https://github.com/baominh03/baolm1-devops-capstone
@@ -14,9 +16,14 @@
 ## Build Docker Container
 
 1. Execute linting step in code pipeline: 
+
+* lint passed:
 ![lint](images/lint.png)
 
-2. Build a Docker container in a pipeline: 
+* lint failed:
+![lint-failed](images/make-lint-failed.png)
+
+1. Build a Docker container in a pipeline: 
 ![build-container](images/build-container.png)
 
 ## Successful Deployment  

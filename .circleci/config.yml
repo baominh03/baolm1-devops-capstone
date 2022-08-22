@@ -51,17 +51,17 @@ jobs:
             docker tag baolmcapstone:latest minhbao03/baolmcapstone:latest
             docker push docker.io/minhbao03/baolmcapstone:latest
   
-  # create-aws-cluster:
-  #   docker:
-  #     - image: "cimg/python:3.10"
-  #   steps:
-  #     - checkout
-  #     - aws-eks/create-cluster:
-  #         cluster-name: baolm-capstone2
-  #         aws-region: us-east-1
-  #         node-type: t3.medium
-  #         nodes-min: 1
-  #         nodes-max: 3
+  create-aws-cluster:
+    docker:
+      - image: "cimg/python:3.10"
+    steps:
+      - checkout
+      - aws-eks/create-cluster:
+          cluster-name: baolm-capstone
+          aws-region: us-east-1
+          node-type: t3.medium
+          nodes-min: 1
+          nodes-max: 3
 
   create-deployment:
     docker:
@@ -69,7 +69,7 @@ jobs:
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
-          cluster-name: baolm-capstone2
+          cluster-name: baolm-capstone
           install-kubectl: true
       - kubernetes/create-or-update-resource:
           resource-file-path: infrastructure.yaml
@@ -88,11 +88,11 @@ workflows:
   deployment:
     jobs:
       - init-dockerfile
-      # - build-push-docker-images:
-      #     requires:
-      #       - "init-dockerfile"
-      # - create-aws-cluster:
-      #     requires:
-      #       - "init-dockerfile"
-      # - create-deployment:
-      #     requires: [build-push-docker-images, create-aws-cluster]
+      - build-push-docker-images:
+          requires:
+            - "init-dockerfile"
+      - create-aws-cluster:
+          requires:
+            - "init-dockerfile"
+      - create-deployment:
+          requires: [build-push-docker-images, create-aws-cluster]
