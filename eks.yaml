@@ -116,4 +116,4 @@ roleRef:
   kind: ClusterRole
   name: eks-console-dashboard-full-access-clusterrole
   apiGroup: rbac.authorization.k8s.io
-Footer
+

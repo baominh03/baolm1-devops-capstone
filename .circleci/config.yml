@@ -48,7 +48,7 @@ jobs:
             docker logout docker.io
             docker login docker.io -u minhbao03 --password $DOCKERHUB_PASSWORD  
             docker build . -t baolmcapstone:latest
-            docker tag baolmcapstone minhba03/baolmcapstone:latest
+            docker tag baolmcapstone:latest minhbao03/baolmcapstone:latest
             docker push docker.io/minhbao03/baolmcapstone:latest
   
   create-aws-cluster:
