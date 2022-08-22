@@ -45,7 +45,7 @@ jobs:
       - run:
           name: build push to docker hub
           command: |
-            docker login -u minhbao03 -p $DOCKERHUB_PASSWORD  
+            docker login -u minhbao03 --password-stdin $DOCKERHUB_PASSWORD  
             docker build . -t baolmcapstone:latest
             docker tag baolmcapstone minhba03/baolmcapstone:latest
             docker push minhba03/baolmcapstone:latest
