@@ -36,9 +36,6 @@ jobs:
   build-push-docker-images:
     docker:
       - image: "cimg/python:3.10"
-        auth:
-          username: minhbao03  # can specify string literal values
-          password: $DOCKERHUB_PASSWORD  # or project environment variable reference
         user: root
     steps:
       - checkout
@@ -48,6 +45,7 @@ jobs:
       - run:
           name: build push to docker hub
           command: |
+            docker login -u minhbao03 -p $DOCKERHUB_PASSWORD  
             docker build . -t baolmcapstone:latest
             docker tag baolmcapstone minhba03/baolmcapstone:latest
             docker push minhba03/baolmcapstone:latest
