@@ -45,9 +45,9 @@ jobs:
       - run:
           name: build push to docker hub
           command: |
+            source .devops/bin/activate
             docker login -u minhbao03 --password $DOCKERHUB_PASSWORD  
             docker build . -t baolmcapstone:latest
-            docker run -p 8080:80 baolmcapstone:latest
             docker tag baolmcapstone minhba03/baolmcapstone:latest
             docker push minhba03/baolmcapstone:latest
   
