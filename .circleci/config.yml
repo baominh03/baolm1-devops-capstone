@@ -46,7 +46,7 @@ jobs:
           name: build push to docker hub
           command: |
             docker build . -t baolmcapstone:latest
-            docker tag baolm minhba03/baolmcapstone:latest
+            docker tag baolmcapstone minhba03/baolmcapstone:latest
             docker push minhba03/baolmcapstone:latest
   
   create-aws-cluster:
