@@ -57,7 +57,7 @@ jobs:
     steps:
       - checkout
       - aws-eks/create-cluster:
-          cluster-name: baolm-capstone
+          cluster-name: baolm-capstone1
           aws-region: us-east-1
           node-type: t3.medium
           nodes-min: 1
