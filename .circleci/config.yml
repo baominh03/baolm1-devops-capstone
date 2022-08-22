@@ -45,11 +45,11 @@ jobs:
       - run:
           name: build push to docker hub
           command: |
-            docker logout
-            docker login docker.io -u minhbao03
+            docker logout docker.io
+            docker login docker.io -u minhbao03 --password $DOCKERHUB_PASSWORD  
             docker build . -t baolmcapstone:latest
             docker tag baolmcapstone minhba03/baolmcapstone:latest
-            docker push minhba03/baolmcapstone
+            docker push docker.io/minhba03/baolmcapstone:latest
   
   create-aws-cluster:
     docker:
