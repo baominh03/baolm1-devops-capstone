@@ -10,7 +10,7 @@ setup:
 	
 
 install:
-	pip install --user --upgrade pip && pip install --user --no-cache-dir -r requirements.txt
+	pip install --user --upgrade pip && pip install --user -r requirements.txt
 
 test:
 	#python -m pytest -vv --cov=myrepolib tests/*.py
