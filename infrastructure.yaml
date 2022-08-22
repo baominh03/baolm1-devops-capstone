@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: baolm-capstone1
+  name: baolm-capstone2
   labels:
-    app: baolm-capstone1
+    app: baolm-capstone2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: baolm-capstone1
+      app: baolm-capstone2
   template:
     metadata:
       labels:
-        app: baolm-capstone1
+        app: baolm-capstone2
     spec:
       containers:
-        - name: baolm-capstone1
+        - name: baolm-capstone2
           image: docker.io/minhbao03/baolmcapstone
           imagePullPolicy: Always
           ports:
@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: baolm-capstone1-service
+  name: baolm-capstone2-service
 spec:
   type: LoadBalancer
   ports:
@@ -34,4 +34,4 @@ spec:
       name: capstone
       protocol: TCP
   selector:
-    app: baolm-capstone1
+    app: baolm-capstone2
