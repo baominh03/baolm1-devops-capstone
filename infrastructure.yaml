@@ -16,12 +16,12 @@ spec:
     spec:
       containers:
         - name: baolm-capstone
-          image: hub.docker.com/r/minhbao03/baolmcapstone
+          image: docker.io/minhbao03/baolmcapstone
           imagePullPolicy: Always
           ports:
             - name: app
               containerPort: 80
-
+---
 apiVersion: v1
 kind: Service
 metadata:
